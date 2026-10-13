@@ -57,3 +57,15 @@ Semantic HTML digunakan untuk memberikan struktur dan makna yang jelas pada hala
 ### 10. Apa perbedaan elemen `<audio>` dan `<video>`?
 
 `<audio>` digunakan untuk memutar file suara, seperti musik atau rekaman. Sedangkan `<video>` digunakan untuk menampilkan dan memutar video yang memiliki gambar bergerak dan dapat disertai suara.
+
+---
+
+## Dokumentasi Hasil Praktikum
+
+### 1. Tampilan Halaman Beranda (index.html)
+
+![Tampilan Halaman Beranda](beranda.png)
+
+### 2. Tampilan Halaman Biodata (biodata.html)
+
+![Tampilan Halaman Biodata](biodata.png)
