@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Biodata Mahasiswa</h1>
+    </header>
+
+
+    <nav>
+        <a href="index.html">Beranda</a>
+    </nav>
+
+
+    <main>
+
+        <section>
+            <h2>Data Mahasiswa</h2>
+
+            <table border="1">
+                <tr>
+                    <th>Data</th>
+                    <th>Keterangan</th>
+                </tr>
+
+                <tr>
+                    <td>NIM</td>
+                    <td>31241001</td>
+                </tr>
+
+                <tr>
+                    <td>Nama</td>
+                    <td>Nama Mahasiswa</td>
+                </tr>
+
+                <tr>
+                    <td>Prodi</td>
+                    <td>Teknik Informatika</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+
+        <section>
+
+            <h2>Form Biodata</h2>
+
+            <form id="formBiodata">
+
+                <label for="nama">Nama</label><br>
+                <input type="text" id="nama" name="nama" required minlength="3">
+
+                <br><br>
+
+
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" required>
+
+                <br><br>
+
+
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" required>
+
+                <br><br>
+
+
+                <label for="tanggal">Tanggal Lahir</label><br>
+                <input type="date" id="tanggal" name="tanggal">
+
+                <br><br>
+
+
+
+                <h3>Jenis Kelamin</h3>
+
+                <input type="radio" id="laki" name="jk" value="Laki-laki">
+                <label for="laki">Laki-laki</label>
+
+
+                <input type="radio" id="perempuan" name="jk" value="Perempuan">
+                <label for="perempuan">Perempuan</label>
+
+
+
+                <h3>Keahlian</h3>
+
+                <input type="checkbox" id="html" name="skill" value="HTML">
+                <label for="html">HTML</label>
+
+
+                <input type="checkbox" id="css" name="skill" value="CSS">
+                <label for="css">CSS</label>
+
+
+                <input type="checkbox" id="javascript" name="skill" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+
+
+                <br><br>
+
+
+
+                <label for="prodi">Program Studi</label><br>
+
+                <select id="prodi" name="prodi">
+
+                    <option value="Teknik Informatika">
+                        Teknik Informatika
+                    </option>
+
+                    <option value="Sistem Informasi">
+                        Sistem Informasi
+                    </option>
+
+                </select>
+
+
+                <br><br>
+
+
+
+                <label for="alamat">Alamat</label><br>
+
+                <textarea 
+                    id="alamat" 
+                    name="alamat" 
+                    rows="5" 
+                    cols="40"
+                    required>
+                </textarea>
+
+
+                <br><br>
+
+
+                <button type="submit">
+                    Simpan
+                </button>
+
+
+                <button type="reset">
+                    Reset
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <section>
+
+            <h2>Hasil Biodata</h2>
+
+            <div id="hasil">
+                Data belum dimasukkan.
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <footer>
+
+        &copy; 2026 Teknik Informatika
+
+    </footer>
+
+
+
+
+<script>
+
+    document
+    .getElementById("formBiodata")
+    .addEventListener("submit", function(event){
+
+
+        event.preventDefault();
+
+
+
+        let nama =
+        document.getElementById("nama").value;
+
+
+        let email =
+        document.getElementById("email").value;
+
+
+        let password =
+        document.getElementById("password").value;
+
+
+        let tanggal =
+        document.getElementById("tanggal").value;
+
+
+        let prodi =
+        document.getElementById("prodi").value;
+
+
+        let alamat =
+        document.getElementById("alamat").value;
+
+
+
+        let jk =
+        document.querySelector(
+            'input[name="jk"]:checked'
+        );
+
+
+        let jenisKelamin =
+        jk ? jk.value : "Belum dipilih";
+
+
+
+        let skill = [];
+
+
+        document
+        .querySelectorAll(
+            'input[name="skill"]:checked'
+        )
+        .forEach(function(item){
+
+            skill.push(item.value);
+
+        });
+
+
+
+        document
+        .getElementById("hasil")
+        .innerHTML = `
+
+            <table border="1">
+
+                <tr>
+                    <th>Data</th>
+                    <th>Keterangan</th>
+                </tr>
+
+                <tr>
+                    <td>Nama</td>
+                    <td>${nama}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Email</td>
+                    <td>${email}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Password</td>
+                    <td>${password}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>${tanggal}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>${jenisKelamin}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Keahlian</td>
+                    <td>${skill.join(", ")}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Program Studi</td>
+                    <td>${prodi}</td>
+                </tr>
+
+
+                <tr>
+                    <td>Alamat</td>
+                    <td>${alamat}</td>
+                </tr>
+
+
+            </table>
+
+        `;
+
+
+    });
+
+
+</script>
+
+
+
+</body>
+
+</html>
